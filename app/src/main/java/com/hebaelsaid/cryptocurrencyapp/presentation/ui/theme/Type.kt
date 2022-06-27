@@ -1,4 +1,4 @@
-package com.hebaelsaid.cryptocurrencyapp.ui.theme
+package com.hebaelsaid.cryptocurrencyapp.presentation.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
