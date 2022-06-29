@@ -17,6 +17,7 @@ fun CoinsDataResponseModel.toCoin(): Coin{
         coin_id = id,
         isActive = is_active,
         isNew = is_new,
+        rank= rank,
         name = name,
         symbol = symbol
     )
