@@ -9,20 +9,15 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavController
 import com.google.accompanist.flowlayout.FlowRow
-import com.hebaelsaid.cryptocurrencyapp.domain.model.Coin
-import com.hebaelsaid.cryptocurrencyapp.domain.model.CoinDetail
-import com.hebaelsaid.cryptocurrencyapp.presentation.Screen
-import com.hebaelsaid.cryptocurrencyapp.presentation.coin_data_list.CoinListViewModel
 import com.hebaelsaid.cryptocurrencyapp.presentation.coin_detail.CoinDetailsViewModel
-import dagger.hilt.android.lifecycle.HiltViewModel
 
 @Composable
 fun CoinDetailsScreen(
@@ -30,7 +25,7 @@ fun CoinDetailsScreen(
 ) {
     val state = viewModel.state.value
     Box(modifier = Modifier.fillMaxSize()) {
-        state.coinDetails?.let { coinDetail ->
+        state.coinDetails?.let { coin ->
             LazyColumn(
                 modifier = Modifier.fillMaxSize(),
                 contentPadding = PaddingValues(20.dp)
@@ -41,37 +36,48 @@ fun CoinDetailsScreen(
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Text(
-                            text = "${coinDetail.rank}. ${coinDetail.name} (${coinDetail.symbol})",
+                            text = "${coin.rank}. ${coin.name} (${coin.symbol})",
                             style = MaterialTheme.typography.h2,
                             modifier = Modifier.weight(8f)
                         )
                         Text(
-                            text = if (coinDetail.isActive) "active" else "inactive",
-                            color = if (coinDetail.isActive) Color.Green else Color.Red,
+                            text = if(coin.isActive) "active" else "inactive",
+                            color = if(coin.isActive) Color.Green else Color.Red,
                             fontStyle = FontStyle.Italic,
                             textAlign = TextAlign.End,
-                            style = MaterialTheme.typography.body2,
                             modifier = Modifier
-                                .align(Alignment.CenterVertically)
+                                .align(CenterVertically)
                                 .weight(2f)
                         )
-                        Spacer(modifier = Modifier.height(15.dp))
-                        Text(text = coinDetail.description, style = MaterialTheme.typography.body2)
-                        Spacer(modifier = Modifier.height(15.dp))
-                        Text(text = "Tags", style = MaterialTheme.typography.h3)
-                        Spacer(modifier = Modifier.height(15.dp))
-                        FlowRow(
-                            mainAxisSpacing = 10.dp, crossAxisSpacing = 10.dp,
-                            modifier = Modifier.fillMaxWidth()
-                        ) {
-                            coinDetail.tags.forEach { tag -> CoinTag(tag = tag) }
-                        }
-                        Spacer(modifier = Modifier.height(15.dp))
-                        Text(text = "Team Members", style = MaterialTheme.typography.h3)
-                        Spacer(modifier = Modifier.height(15.dp))
                     }
+                    Spacer(modifier = Modifier.height(15.dp))
+                    Text(
+                        text = coin.description,
+                        style = MaterialTheme.typography.body2
+                    )
+                    Spacer(modifier = Modifier.height(15.dp))
+                    Text(
+                        text = "Tags",
+                        style = MaterialTheme.typography.h3
+                    )
+                    Spacer(modifier = Modifier.height(15.dp))
+                    FlowRow(
+                        mainAxisSpacing = 10.dp,
+                        crossAxisSpacing = 10.dp,
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        coin.tags.forEach { tag ->
+                            CoinTag(tag = tag)
+                        }
+                    }
+                    Spacer(modifier = Modifier.height(15.dp))
+                    Text(
+                        text = "Team members",
+                        style = MaterialTheme.typography.h3
+                    )
+                    Spacer(modifier = Modifier.height(15.dp))
                 }
-                items(coinDetail.team) { teamMember ->
+                items(coin.team) { teamMember ->
                     TeamListItem(
                         teamMember = teamMember,
                         modifier = Modifier
@@ -82,8 +88,7 @@ fun CoinDetailsScreen(
                 }
             }
         }
-
-        if (state.error.isNotBlank()) {
+        if(state.error.isNotBlank()) {
             Text(
                 text = state.error,
                 color = MaterialTheme.colors.error,
@@ -94,7 +99,7 @@ fun CoinDetailsScreen(
                     .align(Alignment.Center)
             )
         }
-        if (state.isLoading) {
+        if(state.isLoading) {
             CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
         }
     }

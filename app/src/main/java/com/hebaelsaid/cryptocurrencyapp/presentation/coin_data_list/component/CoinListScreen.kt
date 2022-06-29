@@ -16,10 +16,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.hebaelsaid.cryptocurrencyapp.domain.model.Coin
 import com.hebaelsaid.cryptocurrencyapp.presentation.Screen
 import com.hebaelsaid.cryptocurrencyapp.presentation.coin_data_list.CoinListViewModel
-import dagger.hilt.android.lifecycle.HiltViewModel
 
 @Composable
 fun CoinListScreen(
@@ -31,7 +29,7 @@ fun CoinListScreen(
         LazyColumn(modifier = Modifier.fillMaxSize()){
             items(state.coins){  coin ->
                 CoinListItem(coin = coin, onItemClick ={
-                    navController.navigate(Screen.CoinListScreen.route + "/${coin.coin_id}")
+                    navController.navigate(Screen.CoinDetailsScreen.route + "/${coin.coin_id}")
                 } )
             }
         }
