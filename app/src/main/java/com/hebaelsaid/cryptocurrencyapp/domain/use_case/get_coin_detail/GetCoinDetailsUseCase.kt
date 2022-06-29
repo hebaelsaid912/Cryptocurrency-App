@@ -1,5 +1,6 @@
 package com.hebaelsaid.cryptocurrencyapp.domain.use_case.get_coin_detail
 
+import android.util.Log
 import com.hebaelsaid.cryptocurrencyapp.common.Resource
 import com.hebaelsaid.cryptocurrencyapp.data.remote.dto.coin_detail.toCoinDetail
 import com.hebaelsaid.cryptocurrencyapp.data.remote.dto.coins.toCoin

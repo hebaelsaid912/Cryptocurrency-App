@@ -19,7 +19,7 @@ fun TeamListItem(
         verticalArrangement = Arrangement.Center
     ) {
         Text(text = teamMember.name,
-            style = MaterialTheme.typography.h4
+            style = MaterialTheme.typography.subtitle2
         )
         Spacer(modifier = Modifier.height(4.dp))
         Text(text = teamMember.name,

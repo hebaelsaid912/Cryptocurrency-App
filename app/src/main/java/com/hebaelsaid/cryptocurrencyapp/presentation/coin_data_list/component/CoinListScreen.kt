@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -25,12 +26,15 @@ fun CoinListScreen(
     viewModel:CoinListViewModel = hiltViewModel()
 ) {
     val state = viewModel.state.value
-    Box(modifier = Modifier.fillMaxSize()) {
-        LazyColumn(modifier = Modifier.fillMaxSize()){
+    Box(modifier = Modifier.fillMaxSize().padding(15.dp)) {
+        LazyColumn(modifier = Modifier
+            .fillMaxSize()
+            .padding(10.dp)){
             items(state.coins){  coin ->
                 CoinListItem(coin = coin, onItemClick ={
                     navController.navigate(Screen.CoinDetailsScreen.route + "/${coin.coin_id}")
                 } )
+                Divider()
             }
         }
         if(state.error.isNotBlank()){
