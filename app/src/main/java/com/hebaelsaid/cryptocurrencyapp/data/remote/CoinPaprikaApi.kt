@@ -7,10 +7,10 @@ import retrofit2.http.Path
 
 interface CoinPaprikaApi {
 
-    @GET("/v1/coins")
+    @GET("v1/coins")
     suspend fun getCoins(): List<CoinsDataResponseModel>
 
-    @GET("/v1/coins/{coinID}")
+    @GET("v1/coins/{coinID}")
     suspend fun getCoinByID(
         @Path("coinID") coinID: String
     ): CoinDetailsResponseModel
