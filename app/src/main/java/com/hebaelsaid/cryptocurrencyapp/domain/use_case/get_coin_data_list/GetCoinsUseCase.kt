@@ -2,12 +2,11 @@ package com.hebaelsaid.cryptocurrencyapp.domain.use_case.get_coin_data_list
 
 import com.hebaelsaid.cryptocurrencyapp.common.Resource
 import com.hebaelsaid.cryptocurrencyapp.data.remote.dto.coins.toCoin
-import com.hebaelsaid.cryptocurrencyapp.domain.model.Coin
+import com.hebaelsaid.cryptocurrencyapp.data.model.Coin
 import com.hebaelsaid.cryptocurrencyapp.domain.repository.CoinRepository
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
 import java.io.IOException
-import java.util.concurrent.Flow
 import javax.inject.Inject
 
 class GetCoinsUseCase @Inject constructor(

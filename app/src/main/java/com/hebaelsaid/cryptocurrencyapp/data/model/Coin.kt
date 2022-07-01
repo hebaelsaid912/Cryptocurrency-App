@@ -1,4 +1,4 @@
-package com.hebaelsaid.cryptocurrencyapp.domain.model
+package com.hebaelsaid.cryptocurrencyapp.data.model
 
 data class Coin(
     val coin_id: String,

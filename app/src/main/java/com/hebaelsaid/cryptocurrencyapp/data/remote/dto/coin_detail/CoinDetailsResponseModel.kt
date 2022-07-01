@@ -1,6 +1,6 @@
 package com.hebaelsaid.cryptocurrencyapp.data.remote.dto.coin_detail
 
-import com.hebaelsaid.cryptocurrencyapp.domain.model.CoinDetail
+import com.hebaelsaid.cryptocurrencyapp.data.model.CoinDetail
 
 data class CoinDetailsResponseModel(
     val description: String,

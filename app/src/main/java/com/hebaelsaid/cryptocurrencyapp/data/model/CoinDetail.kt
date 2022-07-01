@@ -1,4 +1,4 @@
-package com.hebaelsaid.cryptocurrencyapp.domain.model
+package com.hebaelsaid.cryptocurrencyapp.data.model
 
 import com.hebaelsaid.cryptocurrencyapp.data.remote.dto.coin_detail.CoinDetailsResponseModel
 

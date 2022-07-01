@@ -1,6 +1,6 @@
 package com.hebaelsaid.cryptocurrencyapp.presentation.coin_detail
 
-import com.hebaelsaid.cryptocurrencyapp.domain.model.CoinDetail
+import com.hebaelsaid.cryptocurrencyapp.data.model.CoinDetail
 
 data class CoinDetailsState(
     val isLoading:Boolean=false,
