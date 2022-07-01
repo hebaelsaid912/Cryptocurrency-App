@@ -20,7 +20,7 @@ you can clone code and run it using :
 - StateFlow - emit state updates and emit values to consumers.
 - ViewModel - UI related data holder, lifecycle aware.
 - Architecture
-    - MVVM Architecture ( DataBinding - ViewModel ).
+    - MVVM Architecture.
 - Use Cases
 - Retrofit2 & Gson - construct the REST APIs.
 
