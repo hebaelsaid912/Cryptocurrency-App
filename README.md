@@ -17,6 +17,7 @@ you can clone code and run it using :
 ## Tech stack & Open-source libraries
 - Minimum SDK level 26
 - Kotlin based.
+- Jetpack Compose
 - StateFlow - emit state updates and emit values to consumers.
 - ViewModel - UI related data holder, lifecycle aware.
 - Architecture
