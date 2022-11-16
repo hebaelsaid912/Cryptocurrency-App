@@ -27,7 +27,7 @@ The following diagram shows all the modules and how each module interact with on
 - ViewModel - UI related data holder, lifecycle aware.
 - Architecture
     - MVVM Architecture.
-- Use Cases
+- Clean code, Use Cases
 - Retrofit2 & Gson - construct the REST APIs.
 - Dependency Injection (dagger-hilt).
 
