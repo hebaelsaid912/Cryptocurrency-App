@@ -14,6 +14,11 @@ you can clone code and run it using :
   Gradle Version : 7.1.3
   Compile Sdk : 32
 ``
+## Architecture
+The following diagram shows all the modules and how each module interact with one another after. This architecture using a layered software architecture. 
+![81968739-a8bec700-95d1-11ea-8682-48fe879c25ff](https://user-images.githubusercontent.com/72816466/202194347-29ac36fe-7d79-4382-b212-6ea39f20d689.png)
+
+
 ## Tech stack & Open-source libraries
 - Minimum SDK level 26
 - Kotlin based + Coroutines for asynchronous.
